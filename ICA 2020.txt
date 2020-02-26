@@ -1,0 +1,7 @@
+model {
+	theta_2 ~ dbeta(0.92,2.76)			# prior distribution
+	rho ~ dbeta(5.49,1.83)	
+	theta_1 <- theta_2*rho
+	y_1 ~ dbin(theta_1,n_1);	n_1 <- 300	# sampling distribution
+	y_2 ~ dbin(theta_2,n_2);	n_2 <- 900
+}
